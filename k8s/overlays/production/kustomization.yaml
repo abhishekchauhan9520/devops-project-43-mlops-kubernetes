@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: mlops-platform
+resources:
+  - ../../base
+patches:
+  - path: patch.yaml
+images:
+  - name: ghcr.io/example/mlops-model-server
+    newName: ghcr.io/example/mlops-model-server
+    newTag: production-1
+commonLabels:
+  environment: production
