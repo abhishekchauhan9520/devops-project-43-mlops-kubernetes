@@ -28,10 +28,3 @@ spec:
           port: 53
         - protocol: TCP
           port: 53
-    - to:
-        - namespaceSelector:
-            matchLabels:
-              kubernetes.io/metadata.name: mlops-platform
-      ports:
-        - protocol: TCP
-          port: 4317
