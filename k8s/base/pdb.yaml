@@ -1,0 +1,10 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: model-server
+  namespace: mlops-platform
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: model-server
