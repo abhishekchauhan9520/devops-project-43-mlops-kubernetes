@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: model-server
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        model-version: v1
+      annotations:
+        mlops.example.com/model-alias: candidate
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: model-server
+spec:
+  minReplicas: 2
+  maxReplicas: 4
